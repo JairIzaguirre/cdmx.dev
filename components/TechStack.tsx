@@ -36,7 +36,7 @@ export default function TechStack() {
     <section id="stack" className="relative py-24 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900/20 via-slate-950 to-slate-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary-900/20 via-slate-950 to-slate-950" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,7 +66,7 @@ export default function TechStack() {
             >
               <div className="card h-full text-center hover:scale-105 transition-all duration-300">
                 {/* Icon with Gradient Background */}
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${stack.color} p-0.5`}>
+                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-linear-to-br ${stack.color} p-0.5`}>
                   <div className="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center">
                     <stack.icon className="w-8 h-8 text-white" />
                   </div>
@@ -104,7 +104,7 @@ export default function TechStack() {
             Tecnologías que dominamos
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {['React', 'Next.js', 'Node.js', 'AWS', 'TypeScript', 'PostgreSQL', 'Docker', 'Vercel'].map((tech, index) => (
+            {['React', 'Next.js', 'Node.js', 'AWS', 'TypeScript', 'PostgreSQL', 'Angular', 'Vercel', 'Java', 'Docker'].map((tech, index) => (
               <span 
                 key={index} 
                 className="text-slate-400 font-mono text-sm hover:text-primary-400 transition-colors cursor-default"
