@@ -2,15 +2,14 @@
 
 import { useState } from 'react'
 import { 
-  Send, 
   Mail, 
   Code2, 
   Linkedin, 
   Github, 
   Twitter,
   MapPin,
-  Phone,
   ArrowRight,
+  Send,
   CheckCircle2,
   Loader2
 } from 'lucide-react'
@@ -23,6 +22,7 @@ export default function Footer() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const projectTypes = [
     'Tienda E-Commerce Nueva',
@@ -33,31 +33,51 @@ export default function Footer() {
     'Otro'
   ]
 
+  // ⚠️ CAMBIA ESTO POR TU ENDPOINT DE FORMSPREE
+  const formspreeEndpoint = 'https://formspree.io/f/xeelqqby'
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
     
-    // Simular envío
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          nombre: formData.name,
+          email: formData.email,
+          tipo_proyecto: formData.projectType
+        })
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', projectType: '' })
+        
+        setTimeout(() => {
+          setIsSubmitted(false)
+        }, 5000)
+      } else {
+        setError('Error al enviar. Intenta de nuevo.')
+      }
+    } catch {
+      setError('Error de conexión. Intenta de nuevo.')
+    }
     
     setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', projectType: '' })
-    }, 3000)
   }
 
   return (
     <footer id="contacto" className="relative pt-24 pb-12 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900 to-slate-950" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900 to-slate-950" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary-500/50 to-transparent" />
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* CTA Section */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             ¿Listo para dar el salto
@@ -70,12 +90,11 @@ export default function Footer() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form */}
           <div className="relative">
             <div className="glow" />
             <div className="relative card p-8">
               <h3 className="text-2xl font-bold mb-6">
-                Formulario de Contacto Rápido
+                Formulario de Contacto
               </h3>
               
               {isSubmitted ? (
@@ -88,7 +107,6 @@ export default function Footer() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name */}
                   <div>
                     <label className="block text-sm font-medium mb-2 text-slate-300">
                       Nombre
@@ -105,7 +123,6 @@ export default function Footer() {
                     />
                   </div>
                   
-                  {/* Email */}
                   <div>
                     <label className="block text-sm font-medium mb-2 text-slate-300">
                       Email
@@ -122,7 +139,6 @@ export default function Footer() {
                     />
                   </div>
                   
-                  {/* Project Type */}
                   <div>
                     <label className="block text-sm font-medium mb-2 text-slate-300">
                       Tipo de Proyecto
@@ -144,12 +160,15 @@ export default function Footer() {
                       ))}
                     </select>
                   </div>
+
+                  {error && (
+                    <p className="text-red-400 text-sm">{error}</p>
+                  )}
                   
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>
@@ -158,8 +177,8 @@ export default function Footer() {
                       </>
                     ) : (
                       <>
-                        Enviar Solicitud
                         <Send className="w-5 h-5" />
+                        Enviar Mensaje
                       </>
                     )}
                   </button>
@@ -168,9 +187,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Info */}
           <div className="space-y-8">
-            {/* Quick Contact */}
             <div className="card">
               <h4 className="text-lg font-semibold mb-4">Contacto Directo</h4>
               <div className="space-y-4">
@@ -192,7 +209,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Social Links */}
             <div className="card">
               <h4 className="text-lg font-semibold mb-4">Síguenos</h4>
               <div className="flex gap-4">
@@ -213,7 +229,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div className="card">
               <h4 className="text-lg font-semibold mb-4">Navegación Rápida</h4>
               <div className="grid grid-cols-2 gap-2">
@@ -237,12 +252,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* Logo */}
             <a href="#" className="flex items-center gap-2">
-              <div className="p-2 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl">
+              <div className="p-2 bg-linear-to-br from-primary-500 to-accent-500 rounded-xl">
                 <Code2 className="w-5 h-5 text-white" />
               </div>
               <span className="font-bold">
@@ -250,7 +263,6 @@ export default function Footer() {
               </span>
             </a>
             
-            {/* Copyright */}
             <p className="text-sm text-slate-500">
               © {new Date().getFullYear()} ecommerce.cdmx.dev. Todos los derechos reservados.
             </p>
