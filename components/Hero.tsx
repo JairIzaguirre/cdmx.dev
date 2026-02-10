@@ -51,10 +51,10 @@ export default function Hero() {
               Cotiza tu Proyecto Online
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#casos" className="btn-secondary flex items-center gap-2">
+            {/* <a href="#casos" className="btn-secondary flex items-center gap-2">
               <Play className="w-5 h-5" />
               Ver Casos de Éxito
-            </a>
+            </a> */}
           </div>
 
           {/* Stats */}
