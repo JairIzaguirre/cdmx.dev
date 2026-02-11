@@ -1,0 +1,200 @@
+{
+    "navbar": {
+        "proposal": "Propuesta",
+        "technology": "Tecnología",
+        "methodology": "Metodología",
+        "benefits": "Beneficios",
+        "contact": "Contacto",
+        "quote": "Cotizar Proyecto"
+    },
+    "hero": {
+        "badge": "Desarrollo 100% Remoto",
+        "title1": "E-Commerce de",
+        "title2": "Próxima Generación",
+        "subtitle": "Velocidad, Escalabilidad y Diseño.",
+        "description": "Construimos plataformas de comercio electrónico en la nube utilizando tecnologías de vanguardia. Potenciamos tu negocio con arquitecturas modernas, entregas ágiles y un proceso 100% remoto.",
+        "cta_quote": "Cotiza tu Proyecto Online",
+        "stats": {
+            "projects": "Proyectos Entregados",
+            "load_time": "Tiempo de Carga",
+            "remote": "Proceso Remoto",
+            "support": "Soporte Cloud"
+        }
+    },
+    "value_proposition": {
+        "badge": "Nuestra Propuesta de Valor",
+        "title1": "Desarrollo",
+        "title2": "\"Cloud-First\"",
+        "title3": "y High Performance",
+        "description": "Transformamos tu visión en una plataforma de e-commerce que destaca por su velocidad, diseño y escalabilidad.",
+        "features": [
+            {
+                "title": "Desarrollo \"Cloud-First\"",
+                "description": "No solo creamos tiendas, creamos experiencias de alta velocidad. Optimizamos cada línea de código para asegurar que tu plataforma cargue en milisegundos.",
+                "highlight": "mejorando tu tasa de conversión y el posicionamiento en buscadores."
+            },
+            {
+                "title": "Sin Oficinas, Sin Fricción",
+                "description": "Todo nuestro proceso de levantamiento de requerimientos y seguimiento es 100% digital.",
+                "highlight": "Desde la primera reunión por videollamada hasta la entrega final, ahorramos tu tiempo."
+            },
+            {
+                "title": "Interfaces Potenciadas por AI",
+                "description": "Utilizamos plataformas de Inteligencia Artificial para prototipar y generar interfaces visualmente impactantes.",
+                "highlight": "Adaptadas a las tendencias actuales del mercado."
+            }
+        ],
+        "cta": {
+            "title": "¿Quieres una demo personalizada?",
+            "subtitle": "Te mostramos cómo funciona nuestra metodología",
+            "button": "Agendar Demo"
+        }
+    },
+    "tech_stack": {
+        "badge": "Stack Tecnológico",
+        "title1": "Stack de",
+        "title2": "Alto Rendimiento",
+        "description": "Para garantizar la eficiencia, seleccionamos las mejores herramientas del mercado.",
+        "layers": [
+            {
+                "name": "Frontend",
+                "description": "SSR/SSG para SEO óptimo"
+            },
+            {
+                "name": "Backend",
+                "description": "APIs robustas y escalables"
+            },
+            {
+                "name": "Infraestructura",
+                "description": "Cloud computing de primer nivel"
+            },
+            {
+                "name": "E-Commerce Core",
+                "description": "Soluciones flexibles para ventas"
+            }
+        ],
+        "banner": "Tecnologías que dominamos"
+    },
+    "methodology": {
+        "badge": "Metodología de Trabajo",
+        "title1": "Agilidad",
+        "title2": "Real",
+        "description": "Nuestro flujo de trabajo está diseñado para que siempre tengas visibilidad del progreso.",
+        "steps": [
+            {
+                "title": "Levantamiento Digital",
+                "description": "Sesiones de descubrimiento vía Zoom/Meet para definir objetivos, alcance y expectativas del proyecto.",
+                "features": [
+                    "Videollamadas programadas",
+                    "Documentación compartida",
+                    "Definición de MVP"
+                ]
+            },
+            {
+                "title": "Diseño Inteligente",
+                "description": "Creación de UI/UX apoyada en herramientas de IA para velocidad y estética moderna.",
+                "features": [
+                    "Prototipos interactivos",
+                    "AI-powered design",
+                    "Iteraciones rápidas"
+                ]
+            },
+            {
+                "title": "Desarrollo Ágil (Scrum)",
+                "description": "Entregas bi-semanales para que puedas probar el producto desde el primer mes.",
+                "features": [
+                    "Sprints de 2 semanas",
+                    "Demos frecuentes",
+                    "Feedback continuo"
+                ]
+            },
+            {
+                "title": "CI/CD (Despliegue Continuo)",
+                "description": "Automatizamos las pruebas y el despliegue. Cada mejora se integra a la nube de forma segura.",
+                "features": [
+                    "Tests automatizados",
+                    "Zero downtime",
+                    "Monitoreo 24/7"
+                ]
+            }
+        ],
+        "delivery": {
+            "prefix": "Tiempo promedio de entrega:",
+            "time": "8-12 semanas",
+            "suffix": "para un MVP completo"
+        }
+    },
+    "benefits": {
+        "badge": "Beneficios",
+        "title1": "Beneficios de nuestras",
+        "title2": "plataformas",
+        "description": "Cada solución que entregamos está diseñada para maximizar el rendimiento de tu negocio.",
+        "items": [
+            {
+                "title": "Escalabilidad Total",
+                "description": "Tu tienda crece conforme crecen tus ventas gracias a la arquitectura en la nube."
+            },
+            {
+                "title": "Seguridad Robusta",
+                "description": "Implementación de certificados SSL, DNSSEC y mejores prácticas de protección de datos."
+            },
+            {
+                "title": "Mobile First",
+                "description": "Diseños pensados para la mejor experiencia de compra desde smartphones."
+            },
+            {
+                "title": "Optimización SEO",
+                "description": "Estructura técnica limpia para que Google ame tu sitio y lo posicione mejor."
+            },
+            {
+                "title": "Alta Velocidad",
+                "description": "Páginas que cargan en milisegundos, mejorando la experiencia del usuario."
+            },
+            {
+                "title": "Alcance Global",
+                "description": "Infraestructura preparada para servir clientes de cualquier parte del mundo."
+            }
+        ],
+        "trust_title": "¿Por qué elegirnos?",
+        "trust_items": [
+            "Entregas a tiempo",
+            "Código limpio y documentado",
+            "Soporte post-lanzamiento",
+            "Precios transparentes",
+            "Comunicación constante"
+        ]
+    },
+    "footer": {
+        "title1": "¿Listo para dar el salto",
+        "title2": "a la nube",
+        "title3": "?",
+        "description": "Olvídate de procesos burocráticos y traslados innecesarios. Iniciemos tu proyecto hoy mismo de forma digital.",
+        "form": {
+            "title": "Formulario de Contacto",
+            "name": "Nombre",
+            "name_placeholder": "Tu nombre completo",
+            "email": "Email",
+            "email_placeholder": "tu@email.com",
+            "project_type": "Tipo de Proyecto",
+            "select_option": "Selecciona una opción",
+            "options": [
+                "Tienda E-Commerce Nueva",
+                "Migración de Plataforma",
+                "Rediseño de Tienda Existente",
+                "Integración de APIs",
+                "Consultoría Técnica",
+                "Otro"
+            ],
+            "submit": "Enviar Mensaje",
+            "submitting": "Enviando...",
+            "success_title": "¡Mensaje Enviado!",
+            "success_desc": "Te contactaremos pronto.",
+            "error_generic": "Error al enviar. Intenta de nuevo.",
+            "error_connection": "Error de conexión. Intenta de nuevo."
+        },
+        "contact": "Contacto Directo",
+        "social": "Síguenos",
+        "quick_nav": "Navegación Rápida",
+        "rights": "Todos los derechos reservados."
+    }
+}
