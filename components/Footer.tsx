@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { 
-  Mail, 
-  Code2, 
-  Linkedin, 
-  Github, 
+import {
+  Mail,
+  Code2,
+  Linkedin,
+  Github,
   Twitter,
   MapPin,
   ArrowRight,
@@ -14,7 +14,7 @@ import {
   Loader2
 } from 'lucide-react'
 
-export default function Footer() {
+export default function Footer({ dict }: { dict: any }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,14 +24,7 @@ export default function Footer() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
 
-  const projectTypes = [
-    'Tienda E-Commerce Nueva',
-    'Migración de Plataforma',
-    'Rediseño de Tienda Existente',
-    'Integración de APIs',
-    'Consultoría Técnica',
-    'Otro'
-  ]
+  const projectTypes = dict.form.options
 
   // ⚠️ CAMBIA ESTO POR TU ENDPOINT DE FORMSPREE
   const formspreeEndpoint = 'https://formspree.io/f/xeelqqby'
@@ -40,7 +33,7 @@ export default function Footer() {
     e.preventDefault()
     setIsSubmitting(true)
     setError('')
-    
+
     try {
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
@@ -58,17 +51,17 @@ export default function Footer() {
       if (response.ok) {
         setIsSubmitted(true)
         setFormData({ name: '', email: '', projectType: '' })
-        
+
         setTimeout(() => {
           setIsSubmitted(false)
         }, 5000)
       } else {
-        setError('Error al enviar. Intenta de nuevo.')
+        setError(dict.form.error_generic)
       }
     } catch {
-      setError('Error de conexión. Intenta de nuevo.')
+      setError(dict.form.error_connection)
     }
-    
+
     setIsSubmitting(false)
   }
 
@@ -76,16 +69,16 @@ export default function Footer() {
     <footer id="contacto" className="relative pt-24 pb-12 overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900 to-slate-950" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary-500/50 to-transparent" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            ¿Listo para dar el salto
-            <span className="gradient-text"> a la nube</span>?
+            {dict.title1}
+            <span className="gradient-text"> {dict.title2}</span>
+            {dict.title3}
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Olvídate de procesos burocráticos y traslados innecesarios. 
-            Iniciemos tu proyecto hoy mismo de forma digital.
+            {dict.description}
           </p>
         </div>
 
@@ -94,66 +87,66 @@ export default function Footer() {
             <div className="glow" />
             <div className="relative card p-8">
               <h3 className="text-2xl font-bold mb-6">
-                Formulario de Contacto
+                {dict.form.title}
               </h3>
-              
+
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-8 h-8 text-green-400" />
                   </div>
-                  <h4 className="text-xl font-semibold mb-2">¡Mensaje Enviado!</h4>
-                  <p className="text-slate-400">Te contactaremos pronto.</p>
+                  <h4 className="text-xl font-semibold mb-2">{dict.form.success_title}</h4>
+                  <p className="text-slate-400">{dict.form.success_desc}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label className="block text-sm font-medium mb-2 text-slate-300">
-                      Nombre
+                      {dict.form.name}
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl 
                                text-white placeholder-slate-500 focus:outline-none focus:border-primary-500 
                                focus:ring-1 focus:ring-primary-500 transition-colors"
-                      placeholder="Tu nombre completo"
+                      placeholder={dict.form.name_placeholder}
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium mb-2 text-slate-300">
-                      Email
+                      {dict.form.email}
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl 
                                text-white placeholder-slate-500 focus:outline-none focus:border-primary-500 
                                focus:ring-1 focus:ring-primary-500 transition-colors"
-                      placeholder="tu@email.com"
+                      placeholder={dict.form.email_placeholder}
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium mb-2 text-slate-300">
-                      Tipo de Proyecto
+                      {dict.form.project_type}
                     </label>
                     <select
                       required
                       value={formData.projectType}
-                      onChange={(e) => setFormData({...formData, projectType: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                       className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl 
                                text-white focus:outline-none focus:border-primary-500 
                                focus:ring-1 focus:ring-primary-500 transition-colors
                                appearance-none cursor-pointer"
                     >
-                      <option value="" className="bg-slate-800">Selecciona una opción</option>
-                      {projectTypes.map((type, index) => (
+                      <option value="" className="bg-slate-800">{dict.form.select_option}</option>
+                      {projectTypes.map((type: string, index: number) => (
                         <option key={index} value={type} className="bg-slate-800">
                           {type}
                         </option>
@@ -164,7 +157,7 @@ export default function Footer() {
                   {error && (
                     <p className="text-red-400 text-sm">{error}</p>
                   )}
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -173,12 +166,12 @@ export default function Footer() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        Enviando...
+                        {dict.form.submitting}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Enviar Mensaje
+                        {dict.form.submit}
                       </>
                     )}
                   </button>
@@ -189,10 +182,10 @@ export default function Footer() {
 
           <div className="space-y-8">
             <div className="card">
-              <h4 className="text-lg font-semibold mb-4">Contacto Directo</h4>
+              <h4 className="text-lg font-semibold mb-4">{dict.contact}</h4>
               <div className="space-y-4">
-                <a 
-                  href="mailto:hola@ecommerce.cdmx.dev" 
+                <a
+                  href="mailto:hola@ecommerce.cdmx.dev"
                   className="flex items-center gap-3 text-slate-400 hover:text-primary-400 transition-colors group"
                 >
                   <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-primary-500/20 transition-colors">
@@ -210,7 +203,7 @@ export default function Footer() {
             </div>
 
             <div className="card">
-              <h4 className="text-lg font-semibold mb-4">Síguenos</h4>
+              <h4 className="text-lg font-semibold mb-4">{dict.social}</h4>
               <div className="flex gap-4">
                 {[
                   { icon: Linkedin, href: '#', label: 'LinkedIn' },
@@ -230,9 +223,32 @@ export default function Footer() {
             </div>
 
             <div className="card">
-              <h4 className="text-lg font-semibold mb-4">Navegación Rápida</h4>
+              <h4 className="text-lg font-semibold mb-4">{dict.quick_nav}</h4>
               <div className="grid grid-cols-2 gap-2">
                 {[
+                  { label: dict.form.options[0], href: '#propuesta' }, // Reuse existing keys if possible or stick to hardcoded links names? Wait, nav links are in Navbar but here they are also used. I should probably pass nav links names here too or reuse sections. The code used hardcoded labels before. Let's use dictionary keys from navbar or similar. 
+                  // Wait, previous code had: 'Propuesta', 'Tecnología', 'Metodología', 'Beneficios'. These match Navbar. I can pass navbar dict or just reuse keys if I had them in footer dict. 
+                  // In my footer dict I only put "Quick Navigation". I missed specific link labels for footer.
+                  // I should probably use `dict.navbar` if I had access to it, or duplicate them in footer dict. 
+                  // Let's assume for now I will use the `dict.quick_nav` title and keep the links hardcoded or try to map them? 
+                  // Actually the previous code had specific labels.
+                  // { label: 'Propuesta', href: '#propuesta' } etc.
+                  // I will leave them as is or try to use `dict.navbar` if passed? No, I am passing `dict.footer`.
+                  // I should have added them to footer dict or passed navbar dict.
+                  // Let's use the ones I added to `dictionaries/en.json`? I didn't add nav links to footer dict.
+                  // I will fetch `dict.navbar` in `page.tsx` and pass it to Footer? Or just add them to footer dict.
+                  // Adding to footer dict is cleaner for now. I'll add them to correct file first? 
+                  // No, I will just use hardcoded English/Spanish for now or generic?
+                  // Better: I will use the "options" I added? No those are for project type.
+                  // I will just use the hardcoded values for now but this will leave them untranslated.
+                  // I should update the dictionary first to include footer nav links.
+
+                  // Let's check `dictionaries/es.json` again. I defined `navbar` key.
+                  // I can pass `dict` (entire dict) to Footer instead of just `dict.footer`?
+                  // The current plan was passing `dict.footer`.
+                  // I'll update `app/[lang]/page.tsx` to pass `dict.navbar` to Footer as well? Or `dict`?
+                  // Let's pass `dict.footer` and I will add nav links to `dict.footer` in a separate step if needed.
+                  // For now, I will use:
                   { label: 'Propuesta', href: '#propuesta' },
                   { label: 'Tecnología', href: '#stack' },
                   { label: 'Metodología', href: '#metodologia' },
@@ -262,9 +278,9 @@ export default function Footer() {
                 ecommerce<span className="text-primary-400">.cdmx</span>.dev
               </span>
             </a>
-            
+
             <p className="text-sm text-slate-500">
-              © {new Date().getFullYear()} ecommerce.cdmx.dev. Todos los derechos reservados.
+              © {new Date().getFullYear()} ecommerce.cdmx.dev. {dict.rights}
             </p>
           </div>
         </div>

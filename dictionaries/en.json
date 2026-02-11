@@ -1,0 +1,200 @@
+{
+    "navbar": {
+        "proposal": "Proposal",
+        "technology": "Technology",
+        "methodology": "Methodology",
+        "benefits": "Benefits",
+        "contact": "Contact",
+        "quote": "Get a Quote"
+    },
+    "hero": {
+        "badge": "100% Remote Development",
+        "title1": "Next Generation",
+        "title2": "E-Commerce",
+        "subtitle": "Speed, Scalability, and Design.",
+        "description": "We build cloud e-commerce platforms using cutting-edge technologies. We empower your business with modern architectures, agile delivery, and a 100% remote process.",
+        "cta_quote": "Quote Your Project Online",
+        "stats": {
+            "projects": "Delivered Projects",
+            "load_time": "Load Time",
+            "remote": "Remote Process",
+            "support": "Cloud Support"
+        }
+    },
+    "value_proposition": {
+        "badge": "Our Value Proposition",
+        "title1": "Development",
+        "title2": "\"Cloud-First\"",
+        "title3": "and High Performance",
+        "description": "We transform your vision into an e-commerce platform that stands out for its speed, design, and scalability.",
+        "features": [
+            {
+                "title": "\"Cloud-First\" Development",
+                "description": "We don't just create stores, we create high-speed experiences. We optimize every line of code to ensure your platform loads in milliseconds.",
+                "highlight": "improving your conversion rate and search engine positioning."
+            },
+            {
+                "title": "No Offices, No Friction",
+                "description": "Our entire requirements gathering and follow-up process is 100% digital.",
+                "highlight": "From the first video call to final delivery, we save your time."
+            },
+            {
+                "title": "AI-Powered Interfaces",
+                "description": "We use Artificial Intelligence platforms to prototype and generate visually striking interfaces.",
+                "highlight": "Adapted to current market trends."
+            }
+        ],
+        "cta": {
+            "title": "Want a personalized demo?",
+            "subtitle": "We show you how our methodology works",
+            "button": "Schedule Demo"
+        }
+    },
+    "tech_stack": {
+        "badge": "Tech Stack",
+        "title1": "Stack of",
+        "title2": "High Performance",
+        "description": "To ensure efficiency, we select the best tools on the market.",
+        "layers": [
+            {
+                "name": "Frontend",
+                "description": "SSR/SSG for optimal SEO"
+            },
+            {
+                "name": "Backend",
+                "description": "Robust and scalable APIs"
+            },
+            {
+                "name": "Infrastructure",
+                "description": "Top-tier cloud computing"
+            },
+            {
+                "name": "E-Commerce Core",
+                "description": "Flexible sales solutions"
+            }
+        ],
+        "banner": "Technologies we master"
+    },
+    "methodology": {
+        "badge": "Work Methodology",
+        "title1": "Agility",
+        "title2": "Real",
+        "description": "Our workflow is designed so you always have visibility of progress.",
+        "steps": [
+            {
+                "title": "Digital Discovery",
+                "description": "Discovery sessions via Zoom/Meet to define objectives, scope, and project expectations.",
+                "features": [
+                    "Scheduled video calls",
+                    "Shared documentation",
+                    "MVP definition"
+                ]
+            },
+            {
+                "title": "Intelligent Design",
+                "description": "UI/UX creation supported by AI tools for speed and modern aesthetics.",
+                "features": [
+                    "Interactive prototypes",
+                    "AI-powered design",
+                    "Fast iterations"
+                ]
+            },
+            {
+                "title": "Agile Development (Scrum)",
+                "description": "Bi-weekly deliveries so you can test the product from the first month.",
+                "features": [
+                    "2-week sprints",
+                    "Frequent demos",
+                    "Continuous feedback"
+                ]
+            },
+            {
+                "title": "CI/CD (Continuous Deployment)",
+                "description": "We automate testing and deployment. Every improvement is integrated into the cloud securely.",
+                "features": [
+                    "Automated tests",
+                    "Zero downtime",
+                    "24/7 monitoring"
+                ]
+            }
+        ],
+        "delivery": {
+            "prefix": "Average delivery time:",
+            "time": "8-12 weeks",
+            "suffix": "for a complete MVP"
+        }
+    },
+    "benefits": {
+        "badge": "Benefits",
+        "title1": "Benefits of our",
+        "title2": "platforms",
+        "description": "Every solution we deliver is designed to maximize your business performance.",
+        "items": [
+            {
+                "title": "Total Scalability",
+                "description": "Your store grows as your sales grow thanks to cloud architecture."
+            },
+            {
+                "title": "Robust Security",
+                "description": "Implementation of SSL certificates, DNSSEC, and best data protection practices."
+            },
+            {
+                "title": "Mobile First",
+                "description": "Designs thought for the best shopping experience from smartphones."
+            },
+            {
+                "title": "SEO Optimization",
+                "description": "Clean technical structure so Google loves your site and ranks it better."
+            },
+            {
+                "title": "High Speed",
+                "description": "Pages that load in milliseconds, improving user experience."
+            },
+            {
+                "title": "Global Reach",
+                "description": "Infrastructure prepared to serve customers from anywhere in the world."
+            }
+        ],
+        "trust_title": "Why choose us?",
+        "trust_items": [
+            "On-time deliveries",
+            "Clean and documented code",
+            "Post-launch support",
+            "Transparent pricing",
+            "Constant communication"
+        ]
+    },
+    "footer": {
+        "title1": "Ready to take the leap",
+        "title2": "to the cloud",
+        "title3": "?",
+        "description": "Forget about bureaucratic processes and unnecessary travel. Let's start your project today digitally.",
+        "form": {
+            "title": "Contact Form",
+            "name": "Name",
+            "name_placeholder": "Your full name",
+            "email": "Email",
+            "email_placeholder": "you@email.com",
+            "project_type": "Project Type",
+            "select_option": "Select an option",
+            "options": [
+                "New E-Commerce Store",
+                "Platform Migration",
+                "Existing Store Redesign",
+                "API Integration",
+                "Technical Consulting",
+                "Other"
+            ],
+            "submit": "Send Message",
+            "submitting": "Sending...",
+            "success_title": "Message Sent!",
+            "success_desc": "We will contact you soon.",
+            "error_generic": "Error sending. Try again.",
+            "error_connection": "Connection error. Try again."
+        },
+        "contact": "Direct Contact",
+        "social": "Follow us",
+        "quick_nav": "Quick Navigation",
+        "rights": "All rights reserved."
+    }
+}

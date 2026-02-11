@@ -1,55 +1,55 @@
-import { 
-  TrendingUp, 
-  Shield, 
-  Smartphone, 
-  Search, 
-  Zap, 
+import {
+  TrendingUp,
+  Shield,
+  Smartphone,
+  Search,
+  Zap,
   Globe,
   CheckCircle2,
   Star
 } from 'lucide-react'
 
-export default function Benefits() {
+export default function Benefits({ dict }: { dict: any }) {
   const benefits = [
     {
       icon: TrendingUp,
-      title: 'Escalabilidad Total',
-      description: 'Tu tienda crece conforme crecen tus ventas gracias a la arquitectura en la nube.',
+      title: dict.items[0].title,
+      description: dict.items[0].description,
       color: 'text-green-400',
       bgColor: 'bg-green-500/10'
     },
     {
       icon: Shield,
-      title: 'Seguridad Robusta',
-      description: 'Implementación de certificados SSL, DNSSEC y mejores prácticas de protección de datos.',
+      title: dict.items[1].title,
+      description: dict.items[1].description,
       color: 'text-blue-400',
       bgColor: 'bg-blue-500/10'
     },
     {
       icon: Smartphone,
-      title: 'Mobile First',
-      description: 'Diseños pensados para la mejor experiencia de compra desde smartphones.',
+      title: dict.items[2].title,
+      description: dict.items[2].description,
       color: 'text-purple-400',
       bgColor: 'bg-purple-500/10'
     },
     {
       icon: Search,
-      title: 'Optimización SEO',
-      description: 'Estructura técnica limpia para que Google ame tu sitio y lo posicione mejor.',
+      title: dict.items[3].title,
+      description: dict.items[3].description,
       color: 'text-orange-400',
       bgColor: 'bg-orange-500/10'
     },
     {
       icon: Zap,
-      title: 'Alta Velocidad',
-      description: 'Páginas que cargan en milisegundos, mejorando la experiencia del usuario.',
+      title: dict.items[4].title,
+      description: dict.items[4].description,
       color: 'text-yellow-400',
       bgColor: 'bg-yellow-500/10'
     },
     {
       icon: Globe,
-      title: 'Alcance Global',
-      description: 'Infraestructura preparada para servir clientes de cualquier parte del mundo.',
+      title: dict.items[5].title,
+      description: dict.items[5].description,
       color: 'text-cyan-400',
       bgColor: 'bg-cyan-500/10'
     }
@@ -59,30 +59,29 @@ export default function Benefits() {
     <section id="beneficios" className="relative py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-950 to-slate-950" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mb-6">
             <Star className="w-4 h-4 text-primary-400" />
-            <span className="text-sm text-primary-300">Beneficios</span>
+            <span className="text-sm text-primary-300">{dict.badge}</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Beneficios de nuestras
-            <span className="gradient-text"> plataformas</span>
+            {dict.title1}
+            <span className="gradient-text"> {dict.title2}</span>
           </h2>
-          
+
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Cada solución que entregamos está diseñada para maximizar 
-            el rendimiento de tu negocio.
+            {dict.description}
           </p>
         </div>
 
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div 
+            <div
               key={index}
               className="group card hover:scale-105 transition-all duration-300"
             >
@@ -106,17 +105,11 @@ export default function Benefits() {
         {/* Comparison or Trust Badges */}
         <div className="mt-20 text-center">
           <h3 className="text-xl font-semibold mb-8">
-            ¿Por qué elegirnos?
+            {dict.trust_title}
           </h3>
           <div className="flex flex-wrap justify-center gap-6">
-            {[
-              'Entregas a tiempo',
-              'Código limpio y documentado',
-              'Soporte post-lanzamiento',
-              'Precios transparentes',
-              'Comunicación constante'
-            ].map((item, index) => (
-              <div 
+            {dict.trust_items.map((item: string, index: number) => (
+              <div
                 key={index}
                 className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full"
               >

@@ -1,6 +1,6 @@
 import { ArrowRight, Play, Sparkles, Zap, Globe } from 'lucide-react'
 
-export default function Hero() {
+export default function Hero({ dict }: { dict: any }) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Effects */}
@@ -8,9 +8,9 @@ export default function Hero() {
         {/* Gradient Orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/30 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl animate-pulse-slow delay-1000" />
-        
+
         {/* Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
@@ -25,30 +25,28 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full mb-8">
             <Sparkles className="w-4 h-4 text-primary-400" />
-            <span className="text-sm text-slate-300">Desarrollo 100% Remoto</span>
+            <span className="text-sm text-slate-300">{dict.badge}</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            <span className="block">E-Commerce de</span>
-            <span className="gradient-text">Próxima Generación</span>
+            <span className="block">{dict.title1}</span>
+            <span className="gradient-text">{dict.title2}</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-4 font-medium">
-            Velocidad, Escalabilidad y Diseño.
+            {dict.subtitle}
           </p>
-          
+
           <p className="text-lg text-slate-500 max-w-2xl mx-auto mb-10">
-            Construimos plataformas de comercio electrónico en la nube utilizando
-            tecnologías de vanguardia. Potenciamos tu negocio con arquitecturas modernas,
-            entregas ágiles y un proceso 100% remoto.
+            {dict.description}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a href="#contacto" className="btn-primary flex items-center gap-2 group">
-              Cotiza tu Proyecto Online
+              {dict.cta_quote}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             {/* <a href="#casos" className="btn-secondary flex items-center gap-2">
@@ -60,10 +58,10 @@ export default function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { value: '50+', label: 'Proyectos Entregados' },
-              { value: '<2s', label: 'Tiempo de Carga' },
-              { value: '100%', label: 'Proceso Remoto' },
-              { value: '24/7', label: 'Soporte Cloud' },
+              { value: '50+', label: dict.stats.projects },
+              { value: '<2s', label: dict.stats.load_time },
+              { value: '100%', label: dict.stats.remote },
+              { value: '24/7', label: dict.stats.support },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
@@ -76,18 +74,18 @@ export default function Hero() {
         </div>
 
         {/* Floating Icons */}
-       <div className="hidden lg:block">
-  <div className="absolute top-1/4 left-4 animate-float">
-    <div className="p-4 bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl">
-      <Zap className="w-8 h-8 text-yellow-400" />
-    </div>
-  </div>
-  <div className="absolute top-1/4 right-4 animate-float delay-1000">
-    <div className="p-4 bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl">
-      <Globe className="w-8 h-8 text-primary-400" />
-    </div>
-  </div>
-</div>
+        <div className="hidden lg:block">
+          <div className="absolute top-1/4 left-4 animate-float">
+            <div className="p-4 bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl">
+              <Zap className="w-8 h-8 text-yellow-400" />
+            </div>
+          </div>
+          <div className="absolute top-1/4 right-4 animate-float delay-1000">
+            <div className="p-4 bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl">
+              <Globe className="w-8 h-8 text-primary-400" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
