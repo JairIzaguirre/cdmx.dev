@@ -1,5 +1,6 @@
 import { Server, Monitor, Database, ShoppingCart, Layers } from 'lucide-react'
 import { ScrollReveal } from './ScrollReveal'
+import { TerminalText } from './TerminalText'
 
 export default function TechStack({ dict }: { dict: any }) {
   const stacks = [
@@ -49,7 +50,13 @@ export default function TechStack({ dict }: { dict: any }) {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            {dict.title1} <span className="gradient-text">{dict.title2}</span>
+            <TerminalText
+              segments={[
+                { text: dict.title1 },
+                { text: ' ' + dict.title2, className: 'gradient-text' }
+              ]}
+              delay={0.2}
+            />
           </h2>
 
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
