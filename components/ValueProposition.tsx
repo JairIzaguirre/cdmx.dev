@@ -1,4 +1,5 @@
 import { Cloud, Video, Cpu, Rocket, Sparkles } from 'lucide-react'
+import { ScrollReveal } from './ScrollReveal'
 
 export default function ValueProposition({ dict }: { dict: any }) {
   const features = [
@@ -48,9 +49,11 @@ export default function ValueProposition({ dict }: { dict: any }) {
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className="group relative"
+              direction="up"
+              delay={index * 0.2}
+              className="group relative h-full"
             >
               {/* Glow Effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-accent-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
@@ -74,7 +77,7 @@ export default function ValueProposition({ dict }: { dict: any }) {
                   {feature.highlight}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

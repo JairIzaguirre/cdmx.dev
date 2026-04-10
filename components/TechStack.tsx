@@ -1,4 +1,5 @@
 import { Server, Monitor, Database, ShoppingCart, Layers } from 'lucide-react'
+import { ScrollReveal } from './ScrollReveal'
 
 export default function TechStack({ dict }: { dict: any }) {
   const stacks = [
@@ -59,9 +60,11 @@ export default function TechStack({ dict }: { dict: any }) {
         {/* Stack Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stacks.map((stack, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className="group relative"
+              direction="up"
+              delay={index * 0.1}
+              className="group relative h-full"
             >
               <div className="card h-full text-center hover:scale-105 transition-all duration-300">
                 {/* Icon with Gradient Background */}
@@ -93,7 +96,7 @@ export default function TechStack({ dict }: { dict: any }) {
                   {stack.description}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
