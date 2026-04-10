@@ -1,4 +1,5 @@
 import { ArrowRight, Play, Sparkles, Zap, Globe } from 'lucide-react'
+import { ScrollReveal } from './ScrollReveal'
 
 export default function Hero({ dict }: { dict: any }) {
   return (
@@ -44,16 +45,18 @@ export default function Hero({ dict }: { dict: any }) {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <a href="#contacto" className="btn-primary flex items-center gap-2 group">
-              {dict.cta_quote}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            {/* <a href="#casos" className="btn-secondary flex items-center gap-2">
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+              <a href="#contacto" className="btn-primary flex items-center gap-2 group">
+                {dict.cta_quote}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              {/* <a href="#casos" className="btn-secondary flex items-center gap-2">
               <Play className="w-5 h-5" />
               Ver Casos de Éxito
             </a> */}
-          </div>
+            </div>
+          </ScrollReveal>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">

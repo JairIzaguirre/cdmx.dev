@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Star
 } from 'lucide-react'
+import { ScrollReveal } from './ScrollReveal'
 
 export default function Benefits({ dict }: { dict: any }) {
   const benefits = [
@@ -81,9 +82,11 @@ export default function Benefits({ dict }: { dict: any }) {
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className="group card hover:scale-105 transition-all duration-300"
+              direction="up"
+              delay={index * 0.1}
+              className="group card h-full hover:scale-105 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className={`p-3 rounded-xl ${benefit.bgColor} group-hover:scale-110 transition-transform`}>
@@ -98,7 +101,7 @@ export default function Benefits({ dict }: { dict: any }) {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

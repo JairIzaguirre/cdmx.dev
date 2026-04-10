@@ -1,4 +1,5 @@
 import { Video, Palette, Code2, Rocket, CheckCircle2, ArrowRight } from 'lucide-react'
+import { ScrollReveal } from './ScrollReveal'
 
 export default function Methodology({ dict }: { dict: any }) {
   const steps = [
@@ -58,7 +59,12 @@ export default function Methodology({ dict }: { dict: any }) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="relative group">
+              <ScrollReveal
+                key={index}
+                direction="right"
+                delay={index * 0.15}
+                className="relative group h-full"
+              >
                 {/* Step Card */}
                 <div className="card h-full">
                   {/* Number Badge */}
@@ -97,7 +103,7 @@ export default function Methodology({ dict }: { dict: any }) {
                     <ArrowRight className="w-8 h-8 text-primary-500/50" />
                   </div>
                 )}
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
