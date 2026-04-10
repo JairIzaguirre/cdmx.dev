@@ -1,5 +1,6 @@
 import { Cloud, Video, Cpu, Rocket, Sparkles } from 'lucide-react'
 import { ScrollReveal } from './ScrollReveal'
+import { TerminalText } from './TerminalText'
 
 export default function ValueProposition({ dict }: { dict: any }) {
   const features = [
@@ -37,8 +38,14 @@ export default function ValueProposition({ dict }: { dict: any }) {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            {dict.title1} <span className="gradient-text">{dict.title2}</span>
-            <br />{dict.title3}
+            <TerminalText
+              segments={[
+                { text: dict.title1 },
+                { text: ' ' + dict.title2, className: 'gradient-text' },
+                { text: dict.title3, newLine: true }
+              ]}
+              delay={0.2}
+            />
           </h2>
 
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">

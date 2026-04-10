@@ -1,5 +1,6 @@
 import { ArrowRight, Play, Sparkles, Zap, Globe } from 'lucide-react'
 import { ScrollReveal } from './ScrollReveal'
+import { ScrambleStat } from './ScrambleStat'
 
 export default function Hero({ dict }: { dict: any }) {
   return (
@@ -66,12 +67,14 @@ export default function Hero({ dict }: { dict: any }) {
               { value: '100%', label: dict.stats.remote },
               { value: '24/7', label: dict.stats.support },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
-                  {stat.value}
+              <ScrollReveal key={index} direction="up" delay={0.4 + index * 0.1}>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
+                    <ScrambleStat value={stat.value} delay={0.4 + index * 0.1} />
+                  </div>
+                  <div className="text-sm text-slate-500">{stat.label}</div>
                 </div>
-                <div className="text-sm text-slate-500">{stat.label}</div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
