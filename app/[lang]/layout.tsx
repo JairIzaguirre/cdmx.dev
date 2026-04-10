@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import '../globals.css'
 import Navbar from '@/components/Navbar'
 import { getDictionary } from '@/app/dictionaries'
@@ -34,6 +35,24 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-TLCNRE770K"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-TLCNRE770K');
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Navbar dict={dict.navbar} />
         <main>{children}</main>
