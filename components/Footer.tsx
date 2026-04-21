@@ -11,7 +11,9 @@ import {
   ArrowRight,
   Send,
   CheckCircle2,
-  Loader2
+  Loader2,
+  Phone,
+  PhoneCall
 } from 'lucide-react'
 
 export default function Footer({ dict }: { dict: any }) {
@@ -185,7 +187,7 @@ export default function Footer({ dict }: { dict: any }) {
               <h4 className="text-lg font-semibold mb-4">{dict.contact}</h4>
               <div className="space-y-4">
                 <a
-                  href="mailto:hola@ecommerce.cdmx.dev"
+                  href="mailto:ecommerce@cdmx.dev"
                   className="flex items-center gap-3 text-slate-400 hover:text-primary-400 transition-colors group"
                 >
                   <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-primary-500/20 transition-colors">
@@ -193,6 +195,12 @@ export default function Footer({ dict }: { dict: any }) {
                   </div>
                   ecommerce@cdmx.dev
                 </a>
+                <div className="flex items-center gap-3 text-slate-400">
+                  <div className="p-2 bg-slate-800 rounded-lg">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  +52 55 9832 8626<br /> +52 55 8107 2865
+                </div>
                 <div className="flex items-center gap-3 text-slate-400">
                   <div className="p-2 bg-slate-800 rounded-lg">
                     <MapPin className="w-5 h-5" />

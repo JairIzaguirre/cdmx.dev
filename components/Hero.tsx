@@ -1,6 +1,8 @@
 import { ArrowRight, Play, Sparkles, Zap, Globe } from 'lucide-react'
 import { ScrollReveal } from './ScrollReveal'
 import { ScrambleStat } from './ScrambleStat'
+import { FaWhatsapp } from 'react-icons/fa'
+
 
 export default function Hero({ dict }: { dict: any }) {
   return (
@@ -52,6 +54,11 @@ export default function Hero({ dict }: { dict: any }) {
                 {dict.cta_quote}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
+              <a href="https://wa.me/525512345678" className="btn-secondary flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white border-transparent">
+                <FaWhatsapp className="w-5 h-5" />
+                WhatsApp
+              </a>
+
               {/* <a href="#casos" className="btn-secondary flex items-center gap-2">
               <Play className="w-5 h-5" />
               Ver Casos de Éxito

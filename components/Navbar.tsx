@@ -2,10 +2,21 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X, Code2 } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 export default function Navbar({ dict }: { dict: any }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const currentLang = pathname?.split('/')[1] || 'en'
+
+  const redirectedPathname = (locale: string) => {
+    if (!pathname) return '/'
+    const segments = pathname.split('/')
+    segments[1] = locale
+    return segments.join('/')
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +65,25 @@ export default function Navbar({ dict }: { dict: any }) {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
+
+            {/* Language Switcher */}
+            <div className="flex items-center gap-3 border-l border-slate-700 pl-6">
+              <Link 
+                href={redirectedPathname('en')}
+                className={`text-xl opacity-80 hover:opacity-100 transition-all duration-300 ${currentLang === 'en' ? 'grayscale-0 scale-110' : 'grayscale'}`}
+                title="English"
+              >
+                🇺🇸
+              </Link>
+              <Link 
+                href={redirectedPathname('es')}
+                className={`text-xl opacity-80 hover:opacity-100 transition-all duration-300 ${currentLang === 'es' ? 'grayscale-0 scale-110' : 'grayscale'}`}
+                title="Español"
+              >
+                🇪🇸
+              </Link>
+            </div>
+
             <a href="#contacto" className="btn-primary text-sm py-3 px-6">
               {dict.quote}
             </a>
@@ -81,9 +111,32 @@ export default function Navbar({ dict }: { dict: any }) {
                 {link.label}
               </a>
             ))}
+
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-4 py-4 mt-2 border-t border-slate-800/50">
+              <span className="text-slate-400 text-sm">Language / Idioma:</span>
+              <div className="flex gap-4">
+                <Link 
+                  href={redirectedPathname('en')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-2xl transition-all duration-300 ${currentLang === 'en' ? 'grayscale-0 scale-110' : 'grayscale opacity-50'}`}
+                >
+                  🇺🇸
+                </Link>
+                <Link 
+                  href={redirectedPathname('es')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-2xl transition-all duration-300 ${currentLang === 'es' ? 'grayscale-0 scale-110' : 'grayscale opacity-50'}`}
+                >
+                  🇪🇸
+                </Link>
+              </div>
+            </div>
+
             <a
               href="#contacto"
-              className="btn-primary inline-block mt-4 text-sm py-3 px-6"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="btn-primary flex justify-center mt-4 text-sm py-3 px-6 w-full text-center"
             >
               {dict.quote}
             </a>
