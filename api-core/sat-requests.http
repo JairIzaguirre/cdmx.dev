@@ -1,0 +1,39 @@
+### Generate a valid Invoice (INGRESO)
+POST http://localhost:8081/api/v1/sat/generate
+Content-Type: application/json
+
+{
+  "clientRfc": "XAXX010101000",
+  "clientName": "PUBLICO EN GENERAL",
+  "cfdiUse": "S01",
+  "documentType": "INGRESO",
+  "totalAmount": 1500.50
+}
+
+###
+
+### Attempt to generate with an invalid RFC (Will throw 400 Bad Request)
+POST http://localhost:8081/api/v1/sat/generate
+Content-Type: application/json
+
+{
+  "clientRfc": "INVALID-RFC",
+  "clientName": "BAD CLIENT",
+  "cfdiUse": "G03",
+  "documentType": "INGRESO",
+  "totalAmount": 500.00
+}
+
+###
+
+### Attempt to generate with an unsupported document type
+POST http://localhost:8081/api/v1/sat/generate
+Content-Type: application/json
+
+{
+  "clientRfc": "XAXX010101000",
+  "clientName": "PUBLICO EN GENERAL",
+  "cfdiUse": "G03",
+  "documentType": "PAGO",
+  "totalAmount": 100.00
+}
