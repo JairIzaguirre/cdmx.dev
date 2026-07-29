@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    ports:
+      - "80:80"
+      - "443:443"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    volumes:
+      - "/Users/marco/.docker/run/docker.sock:/var/run/docker.sock:ro"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 128M
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: cdmx_user
+      POSTGRES_PASSWORD: cdmx_password
+      POSTGRES_DB: cdmx_db
+    command: postgres -c shared_buffers=768MB -c max_connections=100 -c work_mem=16MB
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2500M
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --maxmemory 800mb --maxmemory-policy volatile-lru
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1000M
+
+  api-core:
+    build: ./api-core
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1536m -XX:+UseG1GC -XX:MaxGCPauseMillis=100
+      - SPRING_THREADS_VIRTUAL_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/cdmx_db
+      - SPRING_DATASOURCE_USERNAME=cdmx_user
+      - SPRING_DATASOURCE_PASSWORD=cdmx_password
+      - SPRING_DATA_REDIS_HOST=redis
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
+      - "traefik.http.services.api.loadbalancer.server.port=8080"
+    depends_on:
+      - postgres
+      - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  sat-sync-worker:
+    build: ./sat-sync-worker
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx1024m -XX:+UseG1GC
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/cdmx_db
+      - SPRING_DATASOURCE_USERNAME=cdmx_user
+      - SPRING_DATASOURCE_PASSWORD=cdmx_password
+      - SPRING_DATA_REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1500M
+
+  dashboard:
+    build: .
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=PathPrefix(`/`)"
+      - "traefik.http.services.dashboard.loadbalancer.server.port=3000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
